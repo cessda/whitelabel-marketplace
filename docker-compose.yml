@@ -1,6 +1,21 @@
 version: "3"
 
 services:
+  marketplace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - el
+      - redis
+      - active_mq
+    environment:
+      MP_DATABASE_HOST: 127.0.0.1:5432
+      MP_DATABASE_USERNAME: ${DB_POSTGRES_USER:-mp}
+      MP_DATABASE_PASSWORD: ${DB_POSTGRES_PASSWORD:-mp}
+    networks:
+      - mp-local
   db:
     image: postgres:16.4
     volumes:
