@@ -11,9 +11,10 @@ services:
       - redis
       - active_mq
     environment:
-      MP_DATABASE_HOST: 127.0.0.1:5432
+      MP_DATABASE_HOST: db
       MP_DATABASE_USERNAME: ${DB_POSTGRES_USER:-mp}
       MP_DATABASE_PASSWORD: ${DB_POSTGRES_PASSWORD:-mp}
+      REDIS_URL: redis://redis:6379/0
     networks:
       - mp-local
   db:
@@ -21,7 +22,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - "127.0.0.1:5432:5432"
+      - "5432:5432"
     networks:
       - mp-local
     environment:
@@ -29,24 +30,24 @@ services:
       POSTGRES_USER: ${DB_POSTGRES_USER:-mp}
       POSTGRES_PASSWORD: ${DB_POSTGRES_PASSWORD:-mp}
   el:
-    image: arm64v8/elasticsearch:7.8.0
+    image: elasticsearch:7.8.0
     ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
+      - "9200:9200"
+      - "9300:9300"
     networks:
       - mp-local
     environment:
       discovery.type: single-node
   redis:
-    image: arm64v8/redis:7.2.4
+    image: redis:7.2.4
     ports:
-      - "127.0.0.1:6379:6379"
+      - "6379:6379"
     networks:
       - mp-local
   active_mq:
     image: rmohr/activemq
     ports:
-      - "127.0.0.1:61613:61613"
+      - "61613:61613"
     networks:
       - mp-local
 

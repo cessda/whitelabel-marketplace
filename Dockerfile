@@ -1,4 +1,6 @@
-# Node.js
+###########
+# Node.js #
+###########
 FROM node:20 AS node
 
 # Install Yarn
