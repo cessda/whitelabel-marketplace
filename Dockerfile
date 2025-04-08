@@ -43,4 +43,6 @@ COPY . .
 # Copy build result from Node
 COPY --from=node /usr/src/app/app/assets/builds/ /usr/src/app/app/assets/builds/
 
+# Expose and configure entrypoint
+EXPOSE 5000
 ENTRYPOINT [ "/usr/src/app/entrypoint.sh" ]

@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
     depends_on:
       - db
       - el
@@ -15,16 +17,12 @@ services:
       MP_DATABASE_USERNAME: ${DB_POSTGRES_USER:-mp}
       MP_DATABASE_PASSWORD: ${DB_POSTGRES_PASSWORD:-mp}
       REDIS_URL: redis://redis:6379/0
-    networks:
-      - mp-local
   db:
     image: postgres:16.4
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - mp-local
     environment:
       POSTGRES_DB: ${DB_POSTGRES_DB:-mp}
       POSTGRES_USER: ${DB_POSTGRES_USER:-mp}
@@ -34,26 +32,16 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-    networks:
-      - mp-local
     environment:
       discovery.type: single-node
   redis:
     image: redis:7.2.4
     ports:
       - "6379:6379"
-    networks:
-      - mp-local
   active_mq:
     image: rmohr/activemq
     ports:
       - "61613:61613"
-    networks:
-      - mp-local
 
 volumes:
   db-data:
-
-networks:
-  mp-local:
-
