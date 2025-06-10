@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.5"
+ruby "3.3.6"
 
 gem "rails", "~> 7.2.1"
 gem "pg", "~> 1.5", "< 2.0"
@@ -31,6 +31,7 @@ gem "friendly_id", "~> 5.5"
 gem "acts-as-taggable-on"
 gem "countries"
 gem "i18n_data"
+gem "humanize"
 
 gem "activestorage-validator"
 gem "image_processing", ">= 1.2"

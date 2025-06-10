@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 Please view this file on the master branch, on stable branches it's out of date.
 
+## [Unreleased]
+
+### Added
+- Simplify project creation form (@wujuu)
+- Offer recommendations in project view (@wujuu)
+
+## [3.59.0]
+
+### Added
+- New provider wizard form (@maria-j-k, @goreck888, @jarekzet)
+
+### Deprecated
+
+- `ASSET_HOST` and `ASSET_PROTOCOL` environment variables (@goreck888)
+
 ## [3.58.2]
 
 ### Removed
@@ -14,6 +29,11 @@ Please view this file on the master branch, on stable branches it's out of date.
 - Optional integration credentials (@goreck888)
 
 ## [3.58.1] 2025-03-04
+
+### Added
+
+- New provider wizard (@maria-j-k, @jarekzet, @goreck888)
+- New styles for the provider form (@goreck888)
 
 ### Changed
 
