@@ -157,7 +157,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
-    date (3.3.4)
+    date (3.4.1)
     declarative (0.0.20)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -352,7 +352,7 @@ GEM
     multi_json (1.15.0)
     multipart-post (2.4.1)
     mutex_m (0.2.0)
-    net-imap (0.4.16)
+    net-imap (0.4.20)
       date
       net-protocol
     net-pop (0.1.2)
