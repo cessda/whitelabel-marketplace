@@ -3,7 +3,8 @@
     .eosc-common.top.white-label
       .container
         .left-links
-          %a.header-logo-whitelabel{ href: root_path }
+          %a{ href: root_path }
+            = image_tag "white-label-logo.png", class: "header-logo-whitelabel"
         %ul.menu.center-links
         %ul.right-links
           - if user_signed_in?

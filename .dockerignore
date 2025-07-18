@@ -1,0 +1,7 @@
+# Don't pack documentation and build environment content into the Docker container
+*.md
+.editorconfig
+.git
+.gitattributes
+.gitignore
+node_modules

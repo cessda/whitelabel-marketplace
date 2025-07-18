@@ -8274,9 +8274,8 @@ abbr[title] {
 
     .left-links {
       .header-logo-whitelabel {
-        width: 160px;
-        height: 57px;
-        background: url("white-label-logo.png") center no-repeat;
+        max-width: 160px;
+        max-height: 57px;
         display: block;
       }
     }
@@ -8751,6 +8750,11 @@ footer {
         text-decoration: underline;
       }
     }
+  }
+
+  .logo-whitelabel {
+    max-width: 160px;
+    max-height: 57px;
   }
 }
 
