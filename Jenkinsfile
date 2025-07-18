@@ -1,7 +1,7 @@
 pipeline {
 	environment {
 		PRODUCT_NAME = "marketplace"
-		IMAGE_TAG = "${DOCKER_ARTIFACT_REGISTRY}/${productName}:${env.BUILD_NUMBER}"
+		IMAGE_TAG = "${DOCKER_ARTIFACT_REGISTRY}/${PRODUCT_NAME}:${env.BUILD_NUMBER}"
 	}
 
 	agent {
