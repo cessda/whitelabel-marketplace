@@ -28,7 +28,7 @@ pipeline {
 				build job: 'cessda.marketplace.deploy/main', parameters: [
 					string(name: 'MARKETPLACE_DOCKER_IMAGE', value: "${DOCKER_ARTIFACT_REGISTRY}/${PRODUCT_NAME}"),
 					string(name: 'MARKETPLACE_IMAGE_TAG', value: env.BUILD_NUMBER)
-				]
+				], wait: false
 			}
 			when { branch 'cessda-customisations' }
 		}
