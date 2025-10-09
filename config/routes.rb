@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get "/datasources/:id", to: redirect("/services/%{id}")
   get "backoffice/datasources/:id", to: redirect("backoffice/services/%{id}")
 
+  scope "/services" do
+    get "/c/:category_id", to: "services#index", as: :category_services
+  end
   resources :services, only: %i[index show], constraints: { id: pid_format_constraint } do
     scope module: :services do
       resources :offers, only: %i[index] do
@@ -65,7 +68,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get "services/c/:category_id" => "services#index", :as => :category_services
   resources :categories, only: :show
 
   resources :catalogues, only: %i[index show] do
@@ -112,7 +114,11 @@ Rails.application.routes.draw do
 
   resource :backoffice, only: :show
   namespace :backoffice do
+    scope "/services" do
+      get "/c/:category_id", to: "services#index", as: :category_services
+    end
     namespace :statuses do
+      resources :services, only: %i[create]
       resources :providers, only: %i[create]
       resources :catalogues, only: %i[create]
     end
@@ -123,17 +129,17 @@ Rails.application.routes.draw do
           resource :publish, controller: "offers/publishes", only: :create
           resource :draft, controller: "offers/drafts", only: :create
           resource :summary, controller: "offers/summaries", only: %i[create update]
+          post :exit
         end
         resources :bundles do
           resource :publish, controller: "bundles/publishes", only: :create
           resource :draft, controller: "bundles/drafts", only: :create
         end
         resource :publish, only: :create
-        resource :draft, only: :create
+        resource :unpublish, only: :create
       end
     end
     get "service_autocomplete", to: "services#autocomplete", as: :service_autocomplete
-    get "services/c/:category_id" => "services#index", :as => :category_services
     resources :approval_requests, only: %i[index show edit update]
     resources :providers, constraints: { id: pid_format_constraint } do
       resource :publish, controller: "providers/publishes", only: :create
@@ -198,6 +204,7 @@ Rails.application.routes.draw do
         resources :offers, only: %i[index show]
         resources :bundles, only: %i[index show]
       end
+      resources :users, only: :show, constraints: { id: pid_format_constraint }
     end
   end
 

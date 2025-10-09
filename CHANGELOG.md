@@ -7,7 +7,54 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 Please view this file on the master branch, on stable branches it's out of date.
 
-## [3.59.0] 2025-06-23
+## [3.60.0](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.59.3...v3.60.0) (2025-09-05)
+
+
+### Features
+
+* [[#215](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/215)] Subscription on multiple Catalogues ([6bd0d87](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/6bd0d873e6d4f3185ddf10f0ae4c3f5621ff91e1))
+* [[#3493](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/3493)] Add user roles API endpoint ([f80a2b6](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/f80a2b6ad1e8065acd42fd27ec63162442062106))
+
+
+### Bug Fixes
+
+* Add missing assets ([f80a2b6](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/f80a2b6ad1e8065acd42fd27ec63162442062106))
+
+## [3.59.3](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.59.2...v3.59.3) (2025-08-04)
+
+
+### Bug Fixes
+
+* Fix previous user counter decrementation ([54543f5](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/54543f5b1997389af468d0428d1e1a23b0068b88))
+
+## [3.59.2](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/3.59.1...v3.59.2) (2025-08-01)
+
+### Bug Fixes
+
+* Fix Docker images not building if SECRET_KEY_BASE is nil
+* [[#172](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/172)] Fix provider form
+* [[#195](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/195)] Provider form fix ([b42a3cb](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/b42a3cb5100a7da18d412ac1145ca0792fa8907f))
+* Loading root categories on the home-page ([503ba46](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/503ba46057b32b5ab73b1e248e09d5ce0440eb84))
+
+## [3.59.1]
+
+### Added
+
+- Possibility to run concurrent tests (@goreck888)
+
+### Fixed
+
+- Styles in backoffice and landing page (@jarekzet)
+- Login prompt in ordering scope (@goreck888)
+- Category selection in the backoffice search (@goreck888)
+- Github actions on workflow dispatch (@goreck888)
+- Optimization of categories query (@goreck888)
+
+### Deprecated
+
+- environment variable `HOME_PAGE_EXTERNAL_LINKS_ENABLED` (@goreck888)
+
+## [3.59.0] 2025-06-18
 
 ### Added
 
@@ -90,12 +137,36 @@ Please view this file on the master branch, on stable branches it's out of date.
 - Postgres update from 14.1 to 16.4 (@goreck888)
 - Remove most of services from database (@maria-j-k)
 
-## [3.57.0]
+## [3.58.1]
+
+### Changed
+
+- Customizable eosc helpdesk link (@goreck888)
+
+## [3.58.0] 2025-04-01
+
+### Added
+
+- Add save as draft feature to offers form (@maria-j-k, @jarekzet)
+- Add duplicate offer feature to offers form (@maria-j-k)
+- Readme section about manual dev setup (@Michal-Kolomanski)
 
 ### Added
 - Handling data administrator scope in the backoffice (@goreck888)
 - Statuses changes for providers and catalogues (@goreck888)
 - Delete button for services (@goreck888)
+
+### Fixed
+
+- Fitting to EOSC SQA requirements (@goreck888)
+- Log in in the ordering scope (@goreck888)
+- Update EOSC Beyond logo and style improvements (@goreck888, @jarekzet)
+
+### Security
+
+- Update dependencies (@goreck888)
+
+## [3.57.0]
 
 ### Changed
 
