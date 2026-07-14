@@ -7,6 +7,46 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 Please view this file on the master branch, on stable branches it's out of date.
 
+## [3.62.0](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.61.1...v3.62.0) (2026-07-03)
+
+
+### Features
+
+* build and publish docker image to GHCR ([73cfaee](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/73cfaeec7a480576301d619d33ae1ecd789d868a))
+* migrate marketplace to v6 [[#245](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/245)] ([e068709](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/e068709273fdfdf7cedbbca26be3de35b5dbf8ad))
+
+
+### Bug Fixes
+
+* [[#249](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/249)] adjust federated search ([cc84227](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/cc842274922994f46a7ee300f7063ead80155c1c))
+* [[#3711](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/3711)] default datasource order type ([0b1013b](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/0b1013badfe859b514c25e010cfd54549a614224))
+* change service redirection to be dynamic ([#256](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/256)) ([2e8518f](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/2e8518f753571bbe67f3a03813818b81d6362a66))
+* correct latest-tag condition and add PR tag rule for docker image ([25c9c7d](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/25c9c7df7de3058e0e390ccdcb3ae47f12a5184f))
+* make disabling user actions possible ([9b878aa](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/9b878aa3435ea8f9db98a957c4329a139792d2db))
+* port V6 scientific domain import fixes ([f89cfea](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/f89cfea29edf8b80527158df1ed035cf39d080de))
+* restore service page compatibility ([f316a7e](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/f316a7ed7dfae9c1ced45bf3836d11c9d9348148))
+
+## [3.61.1](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.61.0...v3.61.1) (2026-03-26)
+
+
+### Bug Fixes
+
+* [[#238](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/238)] change meta descriptions ([9fd6cc6](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/9fd6cc61823ba3988715f4448ac00b331ac9b249))
+* [AdHoc] Add owner_email to BOS orders call ([e902f0d](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/e902f0d153b01033005f06e7f5beaa3c2621d292))
+* [AdHoc] Add project ref to the BOS message api ([f6575ee](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/f6575ee6eeb1ea449d27b76a317282642693218d))
+
+## [3.61.0](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.60.0...v3.61.0) (2025-10-03)
+
+
+### Features
+
+* [[#221](https://github.com/cyfronet-fid/whitelabel-marketplace/issues/221)] Expose search API ([c4146e2](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/c4146e2229cabcb71bf95c05ecf345802d34f7b5))
+
+
+### Bug Fixes
+
+* add auto_strip to email field ([3ad5242](https://github.com/cyfronet-fid/whitelabel-marketplace/commit/3ad52427a7d2798f78e2abfdcae3eac1c4323027))
+
 ## [3.60.0](https://github.com/cyfronet-fid/whitelabel-marketplace/compare/v3.59.3...v3.60.0) (2025-09-05)
 
 

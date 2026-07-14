@@ -1,0 +1,37 @@
+name: Docker image
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "v*.*.*"
+  pull_request:
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
+      labels: ${{ steps.meta.outputs.labels }}
+    steps:
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=ref,event=pr
+
+  build:
+    needs: meta
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      tags: ${{ needs.meta.outputs.tags }}
+      labels: ${{ needs.meta.outputs.labels }}
+      push: ${{ github.event_name != 'pull_request' }}
