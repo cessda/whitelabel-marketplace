@@ -2,7 +2,7 @@ pipeline {
 	environment {
 		PRODUCT_NAME = 'marketplace'
 		IMAGE_REPOSITORY = "${DOCKER_ARTIFACT_REGISTRY}/${PRODUCT_NAME}"
-		IMAGE_TAG = "${IMAGE_REPOSITORY}:${env.BUILD_NUMBER}"
+		IMAGE_TAG = "${IMAGE_REPOSITORY}:${env.GIT_COMMIT}"
 	}
 
 	agent {
