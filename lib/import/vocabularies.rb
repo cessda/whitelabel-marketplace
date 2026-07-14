@@ -62,7 +62,7 @@ class Import::Vocabularies
 
     begin
       r = Importers::Request.new(@eosc_registry_base_url, "vocabulary/byType", faraday: @faraday, token: @token).call
-    rescue Errno::ECONNREFUSED
+    rescue Errno::ECONNREFUSED => e
       abort("import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}")
     end
 
