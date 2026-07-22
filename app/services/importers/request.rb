@@ -13,7 +13,6 @@ class Importers::Request
 
   def call
     request = @id.blank? ? all : specific
-    raise Errno::ECONNREFUSED if request.blank? || request.status != 200
     request
   end
 
@@ -39,6 +38,7 @@ class Importers::Request
       f.request :retry # retry transient failures
       f.response :follow_redirects # follow redirects
       f.response :json # decode response bodies as JSON
+      f.response :raise_error
       f.headers["Authorization"] = authorization_header unless authorization_header.blank?
       f.adapter Faraday.default_adapter
     end
