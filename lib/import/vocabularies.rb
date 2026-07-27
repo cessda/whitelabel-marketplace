@@ -63,7 +63,7 @@ class Import::Vocabularies
     begin
       r = Importers::Request.new(@eosc_registry_base_url, "vocabulary/byType", faraday: @faraday, token: @token).call
     rescue Faraday::ClientError, Faraday::ServerError => e
-      abort("import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}: #{e.response_body}")
+      abort("import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}: #{e.response[:body]}")
     end
 
     @vocabularies = r.body
