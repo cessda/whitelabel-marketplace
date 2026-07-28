@@ -24,13 +24,16 @@ class Importers::Token
     ENV["IMPORTER_AAI_CLIENT_ID"] || ENV["CHECKIN_IDENTIFIER"] || Rails.application.credentials.checkin[:identifier]
 
   def initialize(faraday: Faraday)
-    @faraday = faraday
+    @conn = faraday.new do |f|
+      f.request :url_encoded
+      f.request :retry # retry transient failures
+      f.response :raise_error
+    end
   end
 
   def receive_token
     data = { grant_type: "refresh_token", refresh_token: REFRESH_TOKEN, client_id: CLIENT_ID }
-    response = @faraday.post("#{AAI_BASE_URL}#{AAI_TOKEN_PATH}", data)
-    raise RequestError if response.blank? || !response.body&.include?("access_token")
+    response = @conn.post("#{AAI_BASE_URL}#{AAI_TOKEN_PATH}", data)
     JSON.parse(response.body)["access_token"]
   end
 end
