@@ -17,7 +17,7 @@ class Importers::Token
   end
 
   AAI_BASE_URL = "https://#{ENV["IMPORTER_AAI_BASE_URL"] || ENV["CHECKIN_HOST"] || "aai.eosc-portal.eu"}".freeze
-  AAI_TOKEN_PATH = "/auth/realms/core/protocol/openid-connect/token"
+  AAI_TOKEN_PATH = ENV.fetch("IMPORTER_AAI_TOKEN_PATH", "/auth/realms/core/protocol/openid-connect/token")
   REFRESH_TOKEN = ENV.fetch("IMPORTER_AAI_REFRESH_TOKEN", nil)
 
   CLIENT_ID =
