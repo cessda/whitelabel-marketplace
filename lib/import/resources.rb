@@ -33,7 +33,7 @@ class Import::Resources
       response =
         Importers::Request.new(@eosc_registry_base_url, "public/service", faraday: @faraday, token: @token).call
     rescue Errno::ECONNREFUSED, Importers::Token::RequestError => e
-      abort("import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}")
+      raise "import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}"
     end
 
     updated = 0

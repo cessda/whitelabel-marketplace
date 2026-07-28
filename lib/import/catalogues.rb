@@ -78,7 +78,7 @@ class Import::Catalogues
       @token ||= Importers::Token.new(faraday: @faraday).receive_token
       rp = Importers::Request.new(@eosc_registry_base_url, "catalogue/bundle", faraday: @faraday, token: @token).call
     rescue Faraday::ClientError, Faraday::ServerError => e
-      abort("import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}: #{e.response[:body]}")
+      raise "import exited with errors - could not connect to #{@eosc_registry_base_url} \n #{e.message}: #{e.response[:body]}"
     end
     Array(rp.body["results"])
   end
