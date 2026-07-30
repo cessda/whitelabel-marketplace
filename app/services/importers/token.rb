@@ -28,7 +28,7 @@ class Importers::Token
 
   def initialize(faraday: Faraday)
     @conn = faraday.new do |f|
-      f.request :authorization, :basic, CLIENT_ID, CLIENT_SECRET
+      f.request :basic_auth, CLIENT_ID, CLIENT_SECRET
       f.request :url_encoded
       f.request :retry # retry transient failures
       f.response :raise_error
@@ -36,7 +36,7 @@ class Importers::Token
   end
 
   def receive_token
-    data = { grant_type: "client_credentials", scope: "entitlements" }
+    data = { grant_type: "client_credentials", scope: "entitlements openid" }
     response = @conn.post("#{AAI_BASE_URL}#{AAI_TOKEN_PATH}", data)
     JSON.parse(response.body)["access_token"]
   end
