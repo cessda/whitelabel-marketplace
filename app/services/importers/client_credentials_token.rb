@@ -35,6 +35,7 @@ class Importers::ClientCredentialsToken
   def token_query_params
     URI.encode_www_form(
       grant_type: "client_credentials",
+      scope: "openid",
       client_id: ENV.fetch("IMPORT_CLIENT_ID"),
       client_secret: ENV.fetch("IMPORT_CLIENT_SECRET")
     )
